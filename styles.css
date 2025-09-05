@@ -8,3 +8,34 @@ h1, h2 { line-height: 1.2; }
 #projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
 .card { border: 1px solid #eee; border-radius: 12px; padding: 1rem; }
 .card h3 { margin: 0 0 .5rem; }
+
+.page-header { margin: 1rem 0 2rem; }
+.lead { font-size: 1.1rem; opacity: 0.9; }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: .6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form { display: grid; gap: .75rem; }
+.form-group { display: grid; gap: .35rem; }
+label { font-weight: 600; }
+input, textarea {
+  width: 100%;
+  padding: .6rem .7rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font: inherit;
+}
+input:focus, textarea:focus { outline: 2px solid #aaa; }
+button.btn { background: #fff; }
