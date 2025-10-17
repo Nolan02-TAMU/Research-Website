@@ -3,58 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Your Name</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Contact</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="container">
-    <h1>Texas A&M Farnell Research Lab</h1>
     <nav>
-      <a href="index.html#Projects">Projects</a>
+      <a href="index.html#work">Work</a>
       <a href="about.html">About</a>
       <a href="contact.html" aria-current="page">Contact</a>
     </nav>
   </header>
 
   <main class="container">
-    <section class="page-header">
-      <h2>Contact</h2>
-      <p class="lead">Yuhua Farnell</p>
-      <p class="lead">Department of Poultry Science</p>
-      <p class="lead">Texas A&M University</p>
-      <p class="lead">Kleburg Center</p>
-      <p class="lead">474 Olsen Boulevard</p>
-      <p class="lead">College Station, TX 77843</p>
+    <h1 class="page-title">CONTACT</h1>
 
-       <p class="lead">Email: yuhua.farnell@ag.tamu.edu</p>
-    </section>
+    <section class="contact-grid">
+      <!-- Left: Map -->
+      <div>
+        <div class="map-wrap">
+          <iframe
+            src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4421.977408705281!2d-96.34845536294029!3d30.60996536036643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864683a3b88348d1%3A0x922895d45ee98737!2sKleberg%20Center%2C%20College%20Station%2C%20TX%2077845!5e1!3m2!1sen!2sus!4v1760722211975!5m2!1sen!2sus"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map: Kleburg Center"
+            allowfullscreen>
+          </iframe>
+        </div>
 
+        <p style="margin-top:.75rem">
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4421.977408705281!2d-96.34845536294029!3d30.60996536036643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864683a3b88348d1%3A0x922895d45ee98737!2sKleberg%20Center%2C%20College%20Station%2C%20TX%2077845!5e1!3m2!1sen!2sus!4v1760722211975!5m2!1sen!2sus">
+            Get directions
+          </a>
+        </p>
+      </div>
 
-      <!-- Optional contact form (works when you hook up a service like Formspree) -->
-      <article class="card">
-        <h3>Contact form</h3>
-        <!-- Replace ACTION with your endpoint (e.g., https://formspree.io/f/xxxxxxx). Leave as # if you’re not using a service yet. -->
-        <form action="#" method="POST">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required />
-          </div>
+      <!-- Right: Contact info -->
+      <article class="card contact-card">
+        <h3 style="margin-top:0">Yuhua Farnell</h3>
+        <address>
+          Department of Poultry Science<br>
+          Texas A&M Univesity<br>
+          Kleburg Center<br>
+          474 Olsen Boulevard<br>
+          College Station, Texas 77843
+        </address>
 
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" name="_replyto" type="email" placeholder="you@example.com" required />
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" placeholder="How can I help?" required></textarea>
-          </div>
-
-          <button class="btn" type="submit">Send</button>
-        </form>
-        <!-- Tip: Using GitHub Pages means no server. For a working form, use a service like Formspree (free tier)
-             and put their endpoint in the form action. -->
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:striepen@upenn.edu">Yuhua.Farnell@ag.tamu.edu</a><br>
+          <strong>office:</strong> Phone number here<br>
+          <strong>lab:</strong> Phone number here<br>
+          <strong>fax:</strong> Phone number here
+        </p>
       </article>
     </section>
   </main>
@@ -64,19 +66,4 @@
   </footer>
   <script src="app.js"></script>
 </body>
-      
-    <section class="card-2">
-  <div class="map-wrap">
-    <iframe
-      src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4421.977408705281!2d-96.34845536294029!3d30.60996536036643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864683a3b88348d1%3A0x922895d45ee98737!2sKleberg%20Center%2C%20College%20Station%2C%20TX%2077845!5e1!3m2!1sen!2sus!4v1759850361086!5m2!1sen!2sus"
-      width="600" 
-      height="450"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>"
-
-  </div>
-</section>
 </html>
