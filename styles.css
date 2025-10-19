@@ -164,4 +164,44 @@ nav a { color: inherit; }
   border-color: var(--border);
 }
 
+/* ---------- Cleaner hero fade slider ---------- */
+.hero-fade{ position: relative; overflow: hidden; }
+.hero-fade .fade-slider{ position: relative; height: clamp(420px, 62vh, 680px); }
+.hero-fade .fade-slide{
+  position: absolute; inset: 0;
+  display: flex; align-items: center;
+  opacity: 0; transition: opacity .6s ease;
+}
+.hero-fade .fade-slide.is-active{ opacity: 1; }
+
+/* Background image per slide via CSS var */
+.hero-fade .fade-slide::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background: var(--bg);
+  background-image: var(--bg-image);
+  background-size: cover; background-position: center;
+  filter: saturate(108%);
+}
+/* Subtle dark overlay to keep text readable on photos */
+.hero-fade .fade-slide::after{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background: color-mix(in oklab, black 35%, transparent);
+}
+
+/* Dots */
+.fade-dots{
+  position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: 1.25rem; display: flex; gap: .45rem;
+}
+.fade-dots button{
+  width: 10px; height: 10px; border-radius: 999px; border: 0;
+  background: var(--border); opacity:.9; cursor: pointer;
+}
+.fade-dots button[aria-current="true"]{ background: var(--text); }
+
+/* Make hero spacing comfy on small screens */
+@media (max-width: 640px){
+  .hero .inner{ padding: 2rem 0; }
+}
+
 }
