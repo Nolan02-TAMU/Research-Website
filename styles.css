@@ -157,4 +157,11 @@ a:hover { text-decoration: underline; }
 /* Nav stays white because this rule (already in your CSS) is more specific */
 nav a { color: inherit; }
 
+/* Make the primary button match regular buttons */
+.btn.primary{
+  background: var(--card);
+  color: inherit;        /* or var(--text) if you prefer */
+  border-color: var(--border);
+}
+
 }
