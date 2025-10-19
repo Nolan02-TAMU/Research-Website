@@ -149,4 +149,12 @@ section + section{ margin-top: clamp(1.25rem, 3vw, 2rem); }
 .contact-card { line-height: 1.8; }
 address { font-style: normal; margin-bottom: .75rem; }
 
+/* Site-wide link color */
+a { color: var(--accent); }
+a:visited { color: var(--accent); }  /* keep visited same color */
+a:hover { text-decoration: underline; }
+
+/* Nav stays white because this rule (already in your CSS) is more specific */
+nav a { color: inherit; }
+
 }
