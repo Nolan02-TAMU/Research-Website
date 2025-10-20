@@ -14,18 +14,18 @@ document.getElementById("projects").innerHTML = projects.map(p => `
   </article>
 `).join("");
 
-// --- Cleaner hero fade slider ---
+// --- Hero slider ---
 (function () {
-  const root = document.querySelector('.hero-fade');
-  if (!root) return;
+  const slider = document.querySelector('.hero-slider');
+  if (!slider) return;
 
-  const slider = root.querySelector('.fade-slider');
-  const slides = Array.from(root.querySelectorAll('.fade-slide'));
-  const dotsWrap = root.querySelector('.fade-dots');
+  const track = slider.querySelector('.slider-track');
+  const slides = Array.from(slider.querySelectorAll('.slide'));
+  const prev = slider.querySelector('.prev');
+  const next = slider.querySelector('.next');
+  const dotsWrap = slider.querySelector('.slider-dots');
 
   let i = 0;
-  let timer = null;
-  const interval = parseInt(slider.getAttribute('data-autoplay') || '0', 10);
 
   // Build dots
   slides.forEach((_, idx) => {
@@ -33,46 +33,42 @@ document.getElementById("projects").innerHTML = projects.map(p => `
     b.type = 'button';
     b.setAttribute('aria-label', `Go to slide ${idx + 1}`);
     if (idx === 0) b.setAttribute('aria-current', 'true');
-    b.addEventListener('click', () => goTo(idx, true));
+    b.addEventListener('click', () => goTo(idx));
     dotsWrap.appendChild(b);
   });
   const dots = Array.from(dotsWrap.children);
 
-  function goTo(n, user) {
+  function goTo(n) {
     i = (n + slides.length) % slides.length;
-    slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
+    track.style.transform = `translateX(-${i * 100}%)`;
+    slides.forEach((s, idx) => s.setAttribute('aria-hidden', idx !== i));
     dots.forEach((d, idx) => d.setAttribute('aria-current', idx === i ? 'true' : 'false'));
-    // reset autoplay when user interacts
-    if (user && interval) restart();
   }
 
-  function next() { goTo(i + 1, false); }
+  prev.addEventListener('click', () => goTo(i - 1));
+  next.addEventListener('click', () => goTo(i + 1));
 
-  function start() {
-    if (!interval) return;
-    timer = setInterval(next, interval);
-  }
-  function stop()  { if (timer) clearInterval(timer); }
-  function restart(){ stop(); start(); }
-
-  // Pause on hover/focus (nice UX)
-  root.addEventListener('mouseenter', stop);
-  root.addEventListener('mouseleave', start);
-  root.addEventListener('focusin', stop);
-  root.addEventListener('focusout', start);
-
-  // Keyboard left/right
-  root.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') next();
-    if (e.key === 'ArrowLeft') goTo(i - 1, true);
+  // Keyboard
+  slider.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') goTo(i + 1);
+    if (e.key === 'ArrowLeft') goTo(i - 1);
   });
 
-  // Respect tab visibility (save battery)
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stop(); else start();
+  // Basic swipe (pointer events)
+  let startX = null;
+  slider.addEventListener('pointerdown', (e) => { startX = e.clientX; slider.setPointerCapture(e.pointerId); });
+  slider.addEventListener('pointerup', (e) => {
+    if (startX == null) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 50) (dx < 0 ? goTo(i + 1) : goTo(i - 1));
+    startX = null;
   });
 
-  goTo(0, false);
-  start();
+  // Optional autoplay
+  let timer = setInterval(() => goTo(i + 1), 6000);
+  slider.addEventListener('mouseenter', () => { clearInterval(timer); });
+  slider.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(i + 1), 6000); });
+
+  goTo(0);
 })();
 
