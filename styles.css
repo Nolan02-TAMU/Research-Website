@@ -164,51 +164,42 @@ nav a { color: inherit; }
   border-color: var(--border);
 }
 
-/* ---------- Hero slider ---------- */
-.hero-slider { position: relative; overflow: hidden; }
-.hero-slider .slider-viewport { overflow: hidden; }
-.hero-slider .slider-track {
-  display: flex;
-  transform: translateX(0);
-  transition: transform .45s ease;
+/* ---------- Cleaner hero fade slider ---------- */
+.hero-fade{ position: relative; overflow: hidden; }
+.hero-fade .fade-slider{ position: relative; height: clamp(420px, 62vh, 680px); }
+.hero-fade .fade-slide{
+  position: absolute; inset: 0;
+  display: flex; align-items: center;
+  opacity: 0; transition: opacity .6s ease;
 }
-.hero-slider .slide { min-width: 100%; }
+.hero-fade .fade-slide.is-active{ opacity: 1; }
 
-/* Use your existing hero background for slide 1;
-   image slides get a cover background + subtle dark overlay */
-.hero-slider .bg-image {
-  position: relative;
+/* Background image per slide via CSS var */
+.hero-fade .fade-slide::before{
+  content:""; position:absolute; inset:0; z-index:-1;
   background: var(--bg);
   background-image: var(--bg-image);
-  background-size: cover;
-  background-position: center;
+  background-size: cover; background-position: center;
+  filter: saturate(108%);
 }
-.hero-slider .bg-image::before {
-  content: ""; position: absolute; inset: 0;
+/* Subtle dark overlay to keep text readable on photos */
+.hero-fade .fade-slide::after{
+  content:""; position:absolute; inset:0; z-index:-1;
   background: color-mix(in oklab, black 35%, transparent);
 }
-.hero-slider .bg-image .inner { position: relative; } /* keep text above overlay */
 
-/* Controls */
-.slider-btn{
-  position: absolute; bottom: 1.25rem; left: 1rem;
-  width: 42px; height: 42px; border-radius: 999px;
-  display: grid; place-items: center;
-  background: var(--card); border: 1px solid var(--border);
-  box-shadow: var(--shadow); cursor: pointer; opacity: .95;
+/* Dots */
+.fade-dots{
+  position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: 1.25rem; display: flex; gap: .45rem;
 }
-.slider-btn.next { left: 4rem; }
-.slider-dots{
-  position: absolute; bottom: 1.25rem; right: 1rem;
-  display: flex; gap: .4rem;
-}
-.slider-dots button{
+.fade-dots button{
   width: 10px; height: 10px; border-radius: 999px; border: 0;
-  background: var(--border);
+  background: var(--border); opacity:.9; cursor: pointer;
 }
-.slider-dots button[aria-current="true"]{ background: var(--text); }
+.fade-dots button[aria-current="true"]{ background: var(--text); }
 
-/* Make sure hero text has comfy spacing on small screens */
+/* Make hero spacing comfy on small screens */
 @media (max-width: 640px){
   .hero .inner{ padding: 2rem 0; }
 }
