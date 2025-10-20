@@ -1,19 +1,20 @@
 [
   {
-    "title": "Effect of Fatty Acid Chains on Organoid Growth",
-    "authors": "Nolan A. Newcomb, Olivia Treviño, Kate Treviño",
-    "venue": "Journal of Organoid Biology",
-    "year": 2025,
-    "abstract": "Chain length and saturation influence growth kinetics and morphology in intestinal organoids.",
-    "doi": "https://doi.org/10.0000/example",
-    "pdf": "pdfs/newcomb-2025-fatty-acids-organoids.pdf"
+    "title": "Publication Title Here",
+    "authors": "Authors",
+    "venue": "Venue",
+    "year": Year,
+    "abstract": "Abstract.",
+    "doi": "DOI",
+    "pdf": "PDF"
   },
   {
-    "title": "Host–Pathogen Dynamics in Primary Avian Organoids",
-    "authors": "O. Treviño, N. A. Newcomb",
-    "venue": "Poultry Science Letters",
-    "year": 2024,
-    "abstract": "Primary avian intestinal organoids model early host responses to infection.",
-    "doi": "https://doi.org/10.0000/example2"
+    "title": "Publication Title Here",
+    "authors": "Authors",
+    "venue": "Venue",
+    "year": Year,
+    "abstract": "Abstract.",
+    "doi": "DOI",
+    "pdf": "PDF"
   }
 ]
