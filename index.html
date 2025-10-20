@@ -26,47 +26,41 @@
     </nav>
   </header>
 
-<section class="hero hero-slider" aria-label="Featured">
-  <div class="slider-viewport">
-    <div class="slider-track">
-      <!-- Slide 1 (your current hero content) -->
-      <article class="slide">
-        <div class="container inner">
-          <p class="lead">Texas A&M Department of Poultry Science</p>
-          <h2>Organoids<br>The Future of Host-Pathogen Interactions</h2>
-          <p class="lead">Organoids, "mini guts", are 3D structures formed from crypts used to study host-pathogen mechanisms.</p>
-          <div class="cta">
-            <a class="btn" href="#work">See my work</a>
-            <a class="btn" href="contact.html">Contact me</a>
-          </div>
+<section class="hero hero-fade" aria-label="Featured">
+  <div class="fade-slider" data-autoplay="6000">
+    <!-- Slide 1 -->
+    <article class="fade-slide is-active" style="--bg-image: none">
+      <div class="container inner">
+        <p class="lead">Texas A&M Department of Poultry Science</p>
+        <h2>Organoids<br>The Future of Host-Pathogen Interactions</h2>
+        <p class="lead">Organoids, "mini guts", are 3D structures formed from crypts used to study host-pathogen mechanisms.</p>
+        <div class="cta">
+          <a class="btn" href="#work">See my work</a>
+          <a class="btn" href="contact.html">Contact me</a>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <!-- Slide 2 (image + text) -->
-      <article class="slide bg-image" style="--bg-image: url('images/slide-lab.jpg')">
-        <div class="container inner">
-          <h2>Immunology Focus</h2>
-          <p class="lead">Modeling host responses to infection with primary organoids.</p>
-          <div class="cta"><a class="btn" href="#research">Research</a></div>
-        </div>
-      </article>
+    <!-- Slide 2 (image background) -->
+    <article class="fade-slide" style="--bg-image: url('images/slide-lab.jpg')">
+      <div class="container inner">
+        <h2>Immunology Focus</h2>
+        <p class="lead">Modeling host responses to infection with primary organoids.</p>
+      </div>
+    </article>
 
-      <!-- Slide 3 (image + text) -->
-      <article class="slide bg-image" style="--bg-image: url('images/slide-microscope.jpg')">
-        <div class="container inner">
-          <h2>Genetics & AMR</h2>
-          <p class="lead">Exploring genetic drivers of antimicrobial resistance.</p>
-        </div>
-      </article>
-    </div>
+    <!-- Slide 3 (image background) -->
+    <article class="fade-slide" style="--bg-image: url('images/slide-microscope.jpg')">
+      <div class="container inner">
+        <h2>Genetics & AMR</h2>
+        <p class="lead">Exploring genetic drivers of antimicrobial resistance.</p>
+      </div>
+    </article>
   </div>
 
-  <!-- Controls -->
-  <button class="slider-btn prev" aria-label="Previous slide">‹</button>
-  <button class="slider-btn next" aria-label="Next slide">›</button>
-  <div class="slider-dots" role="tablist" aria-label="Slide navigation"></div>
+  <!-- Centered dots (no arrows for a cleaner look) -->
+  <div class="fade-dots" role="tablist" aria-label="Slide navigation"></div>
 </section>
-
   
   <main class="container">
     <section id="research"><h2>About</h2><p>A focus on cellular and molecular mechanisms, her research examines interactions among gut microbes, the intestinal epithelium, and immune cells using intestinal organoids from crypt-containing stem cells. She successfully established a long-term avian intestinal organoids biobank, allowing the study of host-pathogen interactions in poultry. This innovative platform holds promise for identifying potential interventions and serves as a valuable resource for drug and supplementary screening, including nutrient supplements, immunomodulators, and antibiotic alternatives. Her work contributes to understanding gut health and has the potential to reduce animal testing costs while enhancing animal welfare and poultry gut health outcomes.</p></section>
