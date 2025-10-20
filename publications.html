@@ -1,1 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Publications</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="container">
+    <nav>
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="publications.html" aria-current="page">Publications</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Publications</h1>
+    <p class="lead">Peer-reviewed papers, preprints, and posters from our lab.</p>
+
+    <!-- Controls -->
+    <div class="pub-controls">
+      <label for="year-filter">Filter by year</label>
+      <select id="year-filter"><option>Loading…</option></select>
+    </div>
+
+    <!-- List -->
+    <section id="pub-list" class="grid-2" aria-live="polite"></section>
+    <p id="pub-empty" class="lead" style="display:none">No publications match that filter.</p>
+  </main>
+
+  <footer class="container">
+    <small>© <span id="year"></span> Your Name</small>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+  // Load and render publications from publications.json
+  (async function () {
+    const list = document.getElementById('pub-list');
+    const empty = document.getElementById('pub-empty');
+    const sel = document.getElementById('year-filter');
+
+    function escapeHTML(s) {
+      return String(s)
+        .replaceAll('&','&amp;').replaceAll('<','&lt;')
+        .replaceAll('>','&gt;').replaceAll('"','&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    // Fetch data
+    let pubs = [];
+    try {
+      const res = await fetch('publications.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('Failed to load publications.json');
+      pubs = await res.json();
+    } catch (e) {
+      list.innerHTML = '<p class="lead">Could not load publications.json</p>';
+      console.error(e);
+      return;
+    }
+
+    // Sort by year desc, then title
+    pubs.sort((a, b) => (b.year || 0) - (a.year || 0) || String(a.title).localeCompare(String(b.title)));
+
+    // Build year filter options
+    const years = Array.from(new Set(pubs.map(p => p.year))).filter(Boolean).sort((a,b)=>b-a);
+    sel.innerHTML = ['all', ...years].map(y =>
+      y === 'all' ? '<option value="all">All years</option>' : `<option value="${y}">${y}</option>`
+    ).join('');
+
+    function linkBtn(label, href) {
+      return href ? `<a class="btn" href="${escapeHTML(href)}" target="_blank" rel="noopener">${escapeHTML(label)}</a>` : '';
+    }
+
+    function render(filteredYear = 'all') {
+      const items = pubs.filter(p => filteredYear === 'all' || String(p.year) === String(filteredYear));
+      list.innerHTML = items.map(p => `
+        <article class="card pub" data-year="${escapeHTML(p.year)}">
+          <h3>${escapeHTML(p.title || 'Untitled')}</h3>
+          <p class="pub-meta">
+            ${escapeHTML(p.authors || '')}
+            ${p.venue ? ' — <span class="venue">' + escapeHTML(p.venue) + '</span>' : ''}
+            ${p.year ? ', <span class="year">' + escapeHTML(p.year) + '</span>' : ''}
+          </p>
+          ${p.abstract ? `<p class="pub-abstract">${escapeHTML(p.abstract)}</p>` : ''}
+          <p class="pub-links">
+            ${linkBtn('DOI', p.doi)}
+            ${linkBtn('PDF', p.pdf)}
+            ${linkBtn('Publisher', p.publisher)}
+          </p>
+        </article>
+      `).join('');
+
+      empty.style.display = items.length ? 'none' : '';
+    }
+
+    // Init + events
+    render('all');
+    sel.addEventListener('change', () => render(sel.value));
+  })();
+  </script>
+</body>
+</html>
 
