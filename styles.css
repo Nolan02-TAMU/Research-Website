@@ -204,4 +204,12 @@ nav a { color: inherit; }
   .hero .inner{ padding: 2rem 0; }
 }
 
+/* removes underline under links site-wide*/
+a { text-decoration: none; }
+a:hover, a:active, a:visited { text-decoration: none; }
+
+/* keep keyboard focus visible */
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+
 }
