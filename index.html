@@ -26,42 +26,46 @@
     </nav>
   </header>
 
-<section class="hero hero-fade" aria-label="Featured">
-  <div class="fade-slider" data-autoplay="6000">
-    <!-- Slide 1 -->
-    <article class="fade-slide is-active" style="--bg-image: none">
-      <div class="container inner">
-        <p class="lead">Texas A&M Department of Poultry Science</p>
-        <h2>Organoids<br>The Future of Host-Pathogen Interactions</h2>
-        <p class="lead">Organoids, "mini guts", are 3D structures formed from crypts used to study host-pathogen mechanisms.</p>
-        <div class="cta">
-          <a class="btn" href="#work">See my work</a>
-          <a class="btn" href="contact.html">Contact me</a>
+<section class="hero hero-slider" aria-label="Featured">
+  <div class="slider-viewport">
+    <div class="slider-track">
+      <!-- Slide 1 (your current hero content) -->
+      <article class="slide">
+        <div class="container inner">
+          <p class="lead">Texas A&M Department of Poultry Science</p>
+          <h2>Organoids<br>The Future of Host-Pathogen Interactions</h2>
+          <p class="lead">Organoids, "mini guts", are 3D structures formed from crypts used to study host-pathogen mechanisms.</p>
+          <div class="cta">
+            <a class="btn" href="#work">See my work</a>
+            <a class="btn" href="contact.html">Contact me</a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <!-- Slide 2 (image background) -->
-    <article class="fade-slide" style="--bg-image: url('images/slide-lab.jpg')">
-      <div class="container inner">
-        <h2>Immunology Focus</h2>
-        <p class="lead">Modeling host responses to infection with primary organoids.</p>
-      </div>
-    </article>
+      <!-- Slide 2 (image + text) -->
+      <article class="slide bg-image" style="--bg-image: url('images/slide-lab.jpg')">
+        <div class="container inner">
+          <h2>Immunology Focus</h2>
+          <p class="lead">Modeling host responses to infection with primary organoids.</p>
+          <div class="cta"><a class="btn" href="#research">Research</a></div>
+        </div>
+      </article>
 
-    <!-- Slide 3 (image background) -->
-    <article class="fade-slide" style="--bg-image: url('images/slide-microscope.jpg')">
-      <div class="container inner">
-        <h2>Genetics & AMR</h2>
-        <p class="lead">Exploring genetic drivers of antimicrobial resistance.</p>
-      </div>
-    </article>
+      <!-- Slide 3 (image + text) -->
+      <article class="slide bg-image" style="--bg-image: url('images/slide-microscope.jpg')">
+        <div class="container inner">
+          <h2>Genetics & AMR</h2>
+          <p class="lead">Exploring genetic drivers of antimicrobial resistance.</p>
+        </div>
+      </article>
+    </div>
   </div>
 
-  <!-- Centered dots (no arrows for a cleaner look) -->
-  <div class="fade-dots" role="tablist" aria-label="Slide navigation"></div>
+  <!-- Controls -->
+  <button class="slider-btn prev" aria-label="Previous slide">‹</button>
+  <button class="slider-btn next" aria-label="Next slide">›</button>
+  <div class="slider-dots" role="tablist" aria-label="Slide navigation"></div>
 </section>
-
 
   
   <main class="container">
