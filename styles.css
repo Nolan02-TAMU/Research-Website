@@ -211,5 +211,10 @@ a:hover, a:active, a:visited { text-decoration: none; }
 /* keep keyboard focus visible */
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+/* ----- Publications page ----- */
+.pub-controls{ display:flex; align-items:center; gap:.5rem; margin:.5rem 0 1rem; }
+.pub .pub-meta{ color: var(--muted); margin:.25rem 0 .5rem; }
+.pub .pub-abstract{ margin:0 0 .6rem; }
+.pub .pub-links{ display:flex; gap:.5rem; flex-wrap:wrap; }
 
 }
