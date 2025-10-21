@@ -18,7 +18,7 @@
     "name": "Olivia Trevino",
     "role": "Undergraduate Research Assistant",
     "image": "images/people/olivia-trevino.jpg",
-    "email": "olivia@example.com",
+    "email": "oliviatrevino29@tamu.edu",
     "bio": "Bio here",
     "interests": ["Organoids"],
     "links": { "publications": "publications.html" },
@@ -28,10 +28,40 @@
     "name": "Kate Trevino",
     "role": "Undergraduate Research Assistant",
     "image": "images/people/kate-trevino.jpg",
-    "email": "kate@example.com",
+    "email": "katetrevino10@tamu.edu",
     "bio": "Bio here",
     "interests": ["Organoids"],
     "links": {},
     "order": 3
+  },
+  {
+    "name": "Leila Chang",
+    "role": "Undergraduate Research Assistant",
+    "image": "images/people/leila-chang.jpg",
+    "email": "leilakchang@tamu.edu",
+    "bio": "Bio here",
+    "interests": ["Organoids"],
+    "links": { "publications": "publications.html" },
+    "order": 4
+  },
+  {
+    "name": "Giovana Longhini",
+    "role": "Graduate Research Assistant",
+    "image": "images/people/giovana-machado.jpg",
+    "email": "giovanamachado@tamu.edu",
+    "bio": "Bio here",
+    "interests": ["Parasites"],
+    "links": { "publications": "publications.html" },
+    "order": 5
+  },
+  {
+  "name": "Carolina Trevino",
+    "role": "Graduate Research Assistant",
+    "image": "images/people/carolina-trevino.jpg",
+    "email": "carotrevino@tamu.edu",
+    "bio": "Bio here",
+    "interests": ["Organoids"],
+    "links": { "publications": "publications.html" },
+    "order": 6
   }
 ]
