@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Nolan A. Newcomb",
+    "role": "Undergraduate Researcher",
+    "image": "images/people/nolan.jpg",
+    "email": "you@example.com",
+    "bio": "Focused on host–pathogen interactions using primary intestinal organoids. Interests include fatty acid signaling and antimicrobial resistance.",
+    "interests": ["Organoids", "Immunology", "AMR"],
+    "links": {
+      "publications": "publications.html",
+      "website": "",
+      "google_scholar": "",
+      "twitter": ""
+    },
+    "order": 1
+  },
+  {
+    "name": "Olivia Treviño",
+    "role": "Research Assistant",
+    "image": "images/people/olivia-trevino.jpg",
+    "email": "olivia@example.com",
+    "bio": "Works on growth kinetics, microscopy, and assay optimization for 3D organoid systems.",
+    "interests": ["Organoid culture", "Imaging"],
+    "links": { "publications": "publications.html" },
+    "order": 2
+  },
+  {
+    "name": "Kate Treviño",
+    "role": "Collaborator",
+    "image": "images/people/kate-trevino.jpg",
+    "email": "kate@example.com",
+    "bio": "Explores genetic drivers of resistance and host response variability in organoid models.",
+    "interests": ["Genetics", "AMR"],
+    "links": {},
+    "order": 3
+  }
+]
