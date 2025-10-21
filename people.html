@@ -22,85 +22,95 @@
     <h1 class="page-title">People</h1>
     <p class="lead">Meet the researchers behind our projects.</p>
 
-    <section class="people-list">
-      <!-- Person 1 -->
-      <article class="card person-card">
-        <img
-          class="person-photo"
-          src="images/people/nolan.jpg"
-          alt="Portrait of Nolan A. Newcomb"
-          width="640" height="800"
-          loading="lazy"
-        />
-        <div class="person-details">
-          <h3>Nolan A. Newcomb</h3>
-          <p class="person-meta">
-            Undergraduate Researcher &middot; Avian organoids, immunology, AMR
-          </p>
-          <p class="person-bio">
-            Focused on host–pathogen interactions using primary intestinal organoids.
-            Interests include fatty acid signaling and antimicrobial resistance mechanisms.
-          </p>
-          <p class="person-links">
-            <a class="btn" href="mailto:you@example.com">Email</a>
-            <a class="btn" href="publications.html">Publications</a>
-          </p>
-        </div>
-      </article>
+    <!-- Optional: quick filter by role -->
+    <div class="pub-controls" id="people-controls" style="margin-bottom:1rem;">
+      <label for="role-filter">Filter by role</label>
+      <select id="role-filter"><option>Loading…</option></select>
+    </div>
 
-      <!-- Person 2 -->
-      <article class="card person-card">
-        <img
-          class="person-photo"
-          src="images/people/olivia-trevino.jpg"
-          alt="Portrait of Olivia Treviño"
-          width="640" height="800"
-          loading="lazy"
-        />
-        <div class="person-details">
-          <h3>Olivia Treviño</h3>
-          <p class="person-meta">
-            Research Assistant &middot; Organoid culture, imaging, assay dev
-          </p>
-          <p class="person-bio">
-            Works on growth kinetics, microscopy, and assay optimization for 3D organoid systems.
-          </p>
-          <p class="person-links">
-            <a class="btn" href="mailto:olivia@example.com">Email</a>
-          </p>
-        </div>
-      </article>
-
-      <!-- Person 3 -->
-      <article class="card person-card">
-        <img
-          class="person-photo"
-          src="images/people/kate-trevino.jpg"
-          alt="Portrait of Kate Treviño"
-          width="640" height="800"
-          loading="lazy"
-        />
-        <div class="person-details">
-          <h3>Kate Treviño</h3>
-          <p class="person-meta">
-            Collaborator &middot; Genetics, AMR
-          </p>
-          <p class="person-bio">
-            Explores genetic drivers of resistance and host response variability in organoid models.
-          </p>
-          <p class="person-links">
-            <a class="btn" href="mailto:kate@example.com">Email</a>
-          </p>
-        </div>
-      </article>
-
-      <!-- Add more <article class="card person-card">…</article> blocks as needed -->
-    </section>
+    <section class="people-list" id="people-list" aria-live="polite"></section>
+    <p id="people-empty" class="lead" style="display:none">No people match that filter.</p>
   </main>
 
   <footer class="container">
     <small>© <span id="year"></span> Your Name</small>
   </footer>
+
   <script src="app.js"></script>
+  <script>
+  // Render People from people.json
+  (async function () {
+    const list = document.getElementById('people-list');
+    const empty = document.getElementById('people-empty');
+    const roleSel = document.getElementById('role-filter');
+
+    const escapeHTML = (s='') => String(s)
+      .replaceAll('&','&amp;').replaceAll('<','&lt;')
+      .replaceAll('>','&gt;').replaceAll('"','&quot;')
+      .replaceAll("'", '&#39;');
+
+    let people = [];
+    try {
+      const res = await fetch('people.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('Failed to load people.json');
+      people = await res.json();
+    } catch (e) {
+      list.innerHTML = '<p class="lead">Could not load people.json</p>';
+      console.error(e);
+      return;
+    }
+
+    // Sort by "order" then name
+    people.sort((a, b) => (a.order ?? 999) - (b.order ?? 999) ||
+                          String(a.name).localeCompare(String(b.name)));
+
+    // Build role filter options
+    const roles = Array.from(new Set(people.map(p => p.role).filter(Boolean))).sort();
+    roleSel.innerHTML = ['All roles', ...roles].map(r =>
+      r === 'All roles' ? '<option value="all">All roles</option>' :
+                          `<option value="${escapeHTML(r)}">${escapeHTML(r)}</option>`
+    ).join('');
+
+    function linkBtn(label, href) {
+      return href ? `<a class="btn" href="${escapeHTML(href)}" target="_blank" rel="noopener">${escapeHTML(label)}</a>` : '';
+    }
+
+    function render(filterRole = 'all') {
+      const rows = people.filter(p => filterRole === 'all' || p.role === filterRole).map(p => {
+        const emailLink = p.email ? `<a class="btn" href="mailto:${escapeHTML(p.email)}">Email</a>` : '';
+        const pubsLink = p.links?.publications ? linkBtn('Publications', p.links.publications) : '';
+        const siteLink = p.links?.website ? linkBtn('Website', p.links.website) : '';
+        const scholarLink = p.links?.google_scholar ? linkBtn('Scholar', p.links.google_scholar) : '';
+        const twitterLink = p.links?.twitter ? linkBtn('Twitter', p.links.twitter) : '';
+
+        const interests = Array.isArray(p.interests) && p.interests.length
+          ? `<p class="person-meta">${p.interests.map(escapeHTML).join(' · ')}</p>` : '';
+
+        return `
+        <article class="card person-card" id="${escapeHTML((p.name||'').toLowerCase().replace(/[^a-z0-9]+/g,'-'))}">
+          <img class="person-photo"
+               src="${escapeHTML(p.image || 'images/people/placeholder.jpg')}"
+               alt="Portrait of ${escapeHTML(p.name || 'team member')}"
+               loading="lazy" width="640" height="800" />
+          <div class="person-details">
+            <h3>${escapeHTML(p.name || '—')}</h3>
+            <p class="person-meta">${escapeHTML(p.role || '')}</p>
+            ${interests}
+            ${p.bio ? `<p class="person-bio">${escapeHTML(p.bio)}</p>` : ''}
+            <p class="person-links">
+              ${emailLink}${pubsLink}${siteLink}${scholarLink}${twitterLink}
+            </p>
+          </div>
+        </article>`;
+      }).join('');
+
+      list.innerHTML = rows;
+      empty.style.display = rows ? 'none' : '';
+    }
+
+    render('all');
+    roleSel.addEventListener('change', () => render(roleSel.value));
+  })();
+  </script>
 </body>
 </html>
