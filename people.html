@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>People</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="container">
+    <nav>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#research">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="people.html" aria-current="page">People</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">People</h1>
+    <p class="lead">Meet the researchers behind our projects.</p>
+
+    <section class="people-list">
+      <!-- Person 1 -->
+      <article class="card person-card">
+        <img
+          class="person-photo"
+          src="images/people/nolan.jpg"
+          alt="Portrait of Nolan A. Newcomb"
+          width="640" height="800"
+          loading="lazy"
+        />
+        <div class="person-details">
+          <h3>Nolan A. Newcomb</h3>
+          <p class="person-meta">
+            Undergraduate Researcher &middot; Avian organoids, immunology, AMR
+          </p>
+          <p class="person-bio">
+            Focused on host–pathogen interactions using primary intestinal organoids.
+            Interests include fatty acid signaling and antimicrobial resistance mechanisms.
+          </p>
+          <p class="person-links">
+            <a class="btn" href="mailto:you@example.com">Email</a>
+            <a class="btn" href="publications.html">Publications</a>
+          </p>
+        </div>
+      </article>
+
+      <!-- Person 2 -->
+      <article class="card person-card">
+        <img
+          class="person-photo"
+          src="images/people/olivia-trevino.jpg"
+          alt="Portrait of Olivia Treviño"
+          width="640" height="800"
+          loading="lazy"
+        />
+        <div class="person-details">
+          <h3>Olivia Treviño</h3>
+          <p class="person-meta">
+            Research Assistant &middot; Organoid culture, imaging, assay dev
+          </p>
+          <p class="person-bio">
+            Works on growth kinetics, microscopy, and assay optimization for 3D organoid systems.
+          </p>
+          <p class="person-links">
+            <a class="btn" href="mailto:olivia@example.com">Email</a>
+          </p>
+        </div>
+      </article>
+
+      <!-- Person 3 -->
+      <article class="card person-card">
+        <img
+          class="person-photo"
+          src="images/people/kate-trevino.jpg"
+          alt="Portrait of Kate Treviño"
+          width="640" height="800"
+          loading="lazy"
+        />
+        <div class="person-details">
+          <h3>Kate Treviño</h3>
+          <p class="person-meta">
+            Collaborator &middot; Genetics, AMR
+          </p>
+          <p class="person-bio">
+            Explores genetic drivers of resistance and host response variability in organoid models.
+          </p>
+          <p class="person-links">
+            <a class="btn" href="mailto:kate@example.com">Email</a>
+          </p>
+        </div>
+      </article>
+
+      <!-- Add more <article class="card person-card">…</article> blocks as needed -->
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>© <span id="year"></span> Your Name</small>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
