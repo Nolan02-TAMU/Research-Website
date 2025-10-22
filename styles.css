@@ -272,6 +272,33 @@ html { scroll-behavior: smooth; }
 .hero-fade .fade-slide::before,
 .hero-fade .fade-slide::after{ pointer-events: none; }
 
+/* ---- Project page helpers ---- */
+.badge{
+  display:inline-block; padding:.2rem .5rem; border-radius:999px;
+  border:1px solid var(--border); background: var(--card); font-size:.85rem;
+}
+.badge.active{ background:#22c55e; color:#fff; border-color:#16a34a; }
+
+.timeline{
+  list-style:none; padding:0; margin:.5rem 0 1rem; border-left:2px solid var(--border);
+}
+.timeline li{
+  padding:.3rem 0 .3rem .8rem; position:relative;
+}
+.timeline li::before{
+  content:""; position:absolute; left:-6px; top:.9rem;
+  width:10px; height:10px; border-radius:999px; background: var(--text);
+}
+
+.gallery{
+  display:grid; gap:.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.gallery img{
+  width:100%; height:180px; object-fit:cover; border-radius:var(--radius);
+  display:block; border:1px solid var(--border);
+}
+
 }
 
 }
