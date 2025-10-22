@@ -1,16 +1,22 @@
 document.getElementById("year").textContent = new Date().getFullYear();
+
 const projects = [
-  { title: "Fatty Acid Chains Affect on Organoid Growth", desc: "How do fatty acid chains affect the growth of organoids?", link: "pro-1.html" },
-  { title: "Olivia Trevino's Project", desc: "What it does", link: "pro-2.html" },
-  { title: "Kate Trevino's Project", desc: "What it does", link: "pro-3.html" },
-  { title: "Carolina's Project", desc: "what is does", link: "pro-4.html" } 
-  
+  { title: "Effect of Fatty Acid Chains on Organoid Growth",
+    desc: "How do fatty acid chains affect organoid growth?",
+    link: "pro-1.html" },          // ← points to your project page
+  { title: "Olivia Treviño's Project",
+    desc: "What it does",
+    link: "pro-2.html" },
+  { title: "Kate Treviño's Project",
+    desc: "What it does",
+    link: "pro-3.html" }
 ];
+
 document.getElementById("projects").innerHTML = projects.map(p => `
-  <article class="card">
+  <article class="card project-card">
     <h3>${p.title}</h3>
     <p>${p.desc}</p>
-    <a href="${p.link}">View →</a>
+    <a class="btn" href="${p.link}">View →</a>
   </article>
 `).join("");
 
