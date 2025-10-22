@@ -1,1 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project — Effect of Fatty Acid Chains on Organoid Growth</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="container">
+    <nav>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#research">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="people.html">People</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Breadcrumb -->
+    <p class="lead" style="margin:.25rem 0 1rem">
+      <a href="index.html#work">← Back to projects</a>
+    </p>
+
+    <!-- Title + status -->
+    <h1 class="page-title">Effect of Fatty Acid Chains on Organoid Growth</h1>
+    <p class="lead">
+      Testing how chain length and saturation influence growth kinetics and morphology in intestinal organoids.
+      <span class="badge active">Active</span>
+      <span class="badge">Q4 2025</span>
+    </p>
+
+    <!-- Hero media (optional image) -->
+    <figure class="card" style="margin:1rem 0">
+      <img src="images/projects/pro-1/hero.jpg" alt="Organoid culture plate close-up" style="width:100%;height:420px;object-fit:cover;border-radius:var(--radius)">
+      <figcaption class="lead" style="margin-top:.5rem">Representative organoid culture at 72h.</figcaption>
+    </figure>
+
+    <!-- Main layout -->
+    <section class="grid-2" style="margin-top:1rem">
+      <!-- Left: main content -->
+      <article>
+        <h2>Overview</h2>
+        <p>
+          We culture primary intestinal organoids to quantify how saturated vs. unsaturated fatty acids and chain length
+          affect proliferation, lumen formation, and viability. Results guide media optimization and inform host–pathogen models.
+        </p>
+
+        <h3>Objectives</h3>
+        <ul>
+          <li>Quantify growth rates across FA chain lengths (C12–C20) and saturation states.</li>
+          <li>Score morphology (budding, lumenization) and viability at 24/48/72h.</li>
+          <li>Identify FA conditions that maximize growth without altering baseline transcriptomics.</li>
+        </ul>
+
+        <h3>Methods</h3>
+        <ol>
+          <li>Isolate crypts → embed in Matrigel domes → plate in 48-well format.</li>
+          <li>Supplement media with candidate fatty acids (dose range 5–50 μM).</li>
+          <li>Imaging: brightfield every 12h; optional confocal at endpoint.</li>
+          <li>Analysis: segmentation + area/budding counts (ImageJ, custom scripts).</li>
+        </ol>
+
+        <h3>Progress</h3>
+        <ul>
+          <li>✅ Pilot dose range finalized; C16:1 shows fastest early growth.</li>
+          <li>✅ Image segmentation pipeline validated on 200+ wells.</li>
+          <li>🟡 Replicate set 2 in progress (n=3 plates).</li>
+          <li>⬜ RNA-seq baseline check pending.</li>
+        </ul>
+
+        <h3>Timeline</h3>
+        <ul class="timeline">
+          <li><strong>Sep–Oct:</strong> Pilot + parameter tuning</li>
+          <li><strong>Nov:</strong> Main experiment (replicates)</li>
+          <li><strong>Dec:</strong> Analysis & draft manuscript</li>
+        </ul>
+
+        <h3>Gallery</h3>
+        <div class="gallery">
+          <img src="images/projects/pro-1/well-24h.jpg" alt="Organoids at 24 hours">
+          <img src="images/projects/pro-1/well-48h.jpg" alt="Organoids at 48 hours">
+          <img src="images/projects/pro-1/well-72h.jpg" alt="Organoids at 72 hours">
+        </div>
+
+        <p style="margin-top:1rem">
+          <a class="btn" href="publications.html">Related publications</a>
+          <a class="btn" href="contact.html">Contact the team</a>
+        </p>
+      </article>
+
+      <!-- Right: sidebar -->
+      <aside class="card" style="position:sticky;top:84px;align-self:start">
+        <h3 style="margin-top:0">Quick facts</h3>
+        <p><strong>PI:</strong> Your PI Name</p>
+        <p><strong>Team:</strong> Nolan Newcomb, Olivia Treviño, Kate Treviño</p>
+        <p><strong>Location:</strong> Kleberg Center, College Station, TX</p>
+        <p><strong>Data & Code:</strong><br>
+          <a class="btn" href="#" target="_blank" rel="noopener">Dataset</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">GitHub</a>
+        </p>
+        <p class="lead">Last updated: <time datetime="2025-10-22">Oct 22, 2025</time></p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>© <span id="year"></span> Your Name</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
 
