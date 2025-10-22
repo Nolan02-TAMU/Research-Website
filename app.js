@@ -3,7 +3,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const projects = [
   { title: "Effect of Fatty Acid Chains on Organoid Growth",
     desc: "How do fatty acid chains affect organoid growth?",
-    link: "pro-1.html" },          // ← points to your project page
+    link: "./pro-1.html" },          // ← points to your project page
   { title: "Olivia Treviño's Project",
     desc: "What it does",
     link: "pro-2.html" },
