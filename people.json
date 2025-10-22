@@ -12,7 +12,7 @@
       "google_scholar": "",
       "twitter": ""
     },
-    "order": 1
+    "order": 4
   },
   {
     "name": "Olivia Trevino",
@@ -22,7 +22,7 @@
     "bio": "Bio here",
     "interests": ["Organoids"],
     "links": { "publications": "publications.html" },
-    "order": 2
+    "order": 5
   },
   {
     "name": "Kate Trevino",
@@ -32,7 +32,7 @@
     "bio": "Bio here",
     "interests": ["Organoids"],
     "links": {},
-    "order": 3
+    "order": 6
   },
   {
     "name": "Leila Chang",
@@ -42,7 +42,7 @@
     "bio": "Bio here",
     "interests": ["Organoids"],
     "links": { "publications": "publications.html" },
-    "order": 4
+    "order": 7
   },
   {
     "name": "Giovana Longhini",
@@ -52,7 +52,7 @@
     "bio": "Bio here",
     "interests": ["Parasites"],
     "links": { "publications": "publications.html" },
-    "order": 5
+    "order": 3
   },
   {
   "name": "Carolina Trevino",
@@ -62,6 +62,16 @@
     "bio": "Bio here",
     "interests": ["Organoids"],
     "links": { "publications": "publications.html" },
-    "order": 6
+    "order": 2
+  }
+  {
+  "name": "Yuhua Farnell",
+    "role": "Ph.D. Lab Coordinator",
+    "image": "images/people/yuhua-farnell.jpg",
+    "email": "Yuhua.Farnell@ag.tamu.edu",
+    "bio": "Bio here",
+    "interests": ["Organoids"],
+    "links": { "publications": "publications.html" },
+    "order": 1
   }
 ]
