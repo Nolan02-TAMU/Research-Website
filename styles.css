@@ -253,6 +253,25 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 html { scroll-behavior: smooth; }
 #work { scroll-margin-top: 80px; } /* adjust to your header height */
 
+/* Arrow buttons for the hero fade slider */
+.fade-btn{
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 3; /* above slides/overlays */
+  width: 42px; height: 42px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--card);
+  box-shadow: var(--shadow); cursor: pointer;
+  display: grid; place-items: center; font-size: 24px; line-height: 1;
+}
+.fade-prev{ left: 1rem; }
+.fade-next{ right: 1rem; }
+
+/* Ensure slides/overlays don’t steal clicks */
+.hero-fade .fade-slide{ pointer-events: none; z-index: 0; }
+.hero-fade .fade-slide.is-active{ pointer-events: auto; z-index: 1; }
+.hero-fade .fade-slide::before,
+.hero-fade .fade-slide::after{ pointer-events: none; }
+
 }
 
 }
