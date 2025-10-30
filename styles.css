@@ -334,5 +334,42 @@ header nav a[aria-current="page"]{
 @media (max-width: 640px){
   header nav a{ flex: 1 0 50%; }
 }
+/* Make the header bar full-bleed regardless of markup */
+header.container,
+header .container{
+  max-width: none !important;   /* override your global .container max */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Stretch nav links across the entire top as equal-width tabs */
+header nav{
+  display: grid;
+  grid-auto-flow: column;   /* lay links in a single row */
+  grid-auto-columns: 1fr;   /* each link takes equal width */
+  width: 100%;
+}
+
+header nav a{
+  display: block;
+  text-align: center;
+  padding: .9rem 0;         /* vertical padding only so they line up */
+  text-decoration: none;
+}
+
+/* Optional: use an underline-style active state */
+header nav a:hover,
+header nav a[aria-current="page"]{
+  background: transparent;
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+/* Small screens: stack into two columns if space gets tight */
+@media (max-width: 640px){
+  header nav{
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+  }
+}
 
 }
