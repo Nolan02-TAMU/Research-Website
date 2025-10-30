@@ -298,6 +298,8 @@ html { scroll-behavior: smooth; }
   width:100%; height:180px; object-fit:cover; border-radius:var(--radius);
   display:block; border:1px solid var(--border);
 }
+/* Add near the end of styles.css */
+header .container{ max-width: none; }
 
 }
 
