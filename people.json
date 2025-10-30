@@ -31,7 +31,7 @@
     "email": "katetrevino10@tamu.edu",
     "bio": "Bio here",
     "interests": ["Organoids"],
-    "links": {},
+    "links": { "publications": "publications.html" },
     "order": 6
   },
   {
