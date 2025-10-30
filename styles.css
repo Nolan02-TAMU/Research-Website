@@ -399,5 +399,37 @@ header.container, header .container { max-width: none !important; padding-left: 
 @media (max-width: 640px){
   .topnav{ grid-template-columns: repeat(2, 1fr); }
 }
+/* Stack title above nav and center it */
+header.container, header .container{
+  display: grid !important;
+  grid-template-rows: auto auto;   /* row 1 = title, row 2 = nav */
+  grid-template-columns: 1fr;
+  justify-items: center;           /* center children horizontally */
+  max-width: none;                 /* full-bleed header bar */
+  padding-left: 0; padding-right: 0;
+}
+
+/* Title styling */
+.site-title,
+header .container > h1{
+  margin: 0;
+  text-align: center;
+  letter-spacing: .01em;
+  font-size: clamp(1.1rem, 0.6rem + 2vw, 1.7rem);
+}
+
+/* Nav fills the full width under the title */
+header .container > nav{
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr);  /* update if you add/remove links */
+  gap: 0;
+}
+header nav a{
+  display: block;
+  text-align: center;
+  padding: .9rem 0;
+  text-decoration: none;
+}
 
 }
