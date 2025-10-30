@@ -302,5 +302,37 @@ html { scroll-behavior: smooth; }
 header .container{ max-width: none; }
 
 }
+/* Make the header content full-width */
+header .container{ max-width: none; }
+
+/* Stretch nav links across the entire top */
+header nav{
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* push first to left, last to right */
+  gap: 0;
+}
+
+/* Make each link take equal width and center its text */
+header nav a{
+  flex: 1 1 0;
+  text-align: center;
+  padding: .8rem 0;            /* vertical padding only so they line up cleanly */
+}
+
+/* Optional: use an underline-style active state instead of pill backgrounds */
+header nav a:hover,
+header nav a[aria-current="page"]{
+  background: transparent;
+  box-shadow: none;
+}
+header nav a[aria-current="page"]{
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+/* Mobile: stack into two columns if space gets tight */
+@media (max-width: 640px){
+  header nav a{ flex: 1 0 50%; }
+}
 
 }
